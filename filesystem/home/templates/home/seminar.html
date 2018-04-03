@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+
+    <title>FileDrive</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href = "{% static 'home/style.css' %}" />
+
+
+</head>
+
+
+<body>
+<div class="container-fluid">
+
+    <!-- OS of the user-->
+    <script type="text/javascript">
+		var OS = navigator.platform;
+	</script>
+
+    <div id="logo">
+        <h1>File-Drive</h1>
+    </div>
+
+    <div id="slogan">
+        <h1>WELCOME!</h1><br>
+        <h1>I'M FILE-DRIVE</h1>
+        <h1>I can  <b><u>Format Devices</u></b> without using any Application.</h1>
+    </div>
+
+    <!-- <div id="startbutton">
+
+     <button type="button" class="btn btn-primary" onclick="showfilesys()" >Click Here to Show Devices </button>
+    </div> -->
+<hr>
+    <div id="text">
+        Following Paths Are Available In Your System
+    </div>
+
+    <div id="dfo">
+        <pre> {{ data }} </pre>
+		        </div>
+
+
+
+    <!-- Select  device-->
+<div id="alignn">
+    <form action="submit" method="post">
+        {% csrf_token %}
+        <div id="path">
+
+            <input type="text" name="loc" placeholder="eg./dev/sdb">
+
+            <label type="label" class="bg-primary" >Enter Device Path (From First Column)</label>
+        </div>
+
+        <!-- Select filesystem-->
+        <div id="filesystem">
+            <select name="filesys">
+                <option value="" selected>select file system</option>
+                <option value="ext4">1. Ext4 (Supported by Linux)</option>
+                <option value="fat32">2. FAT32 (Supported by most Systems)</option>
+                <option value="ntfs">3. NTFS (Supported by Windows)</option>
+                <option  value="reiserfs">4. ReiserFS (Supported by most systems)</option>
+                <option value="btrfs">5. Btrfs (Supported by most systems)</option>
+
+            </select>
+            <label type="label" class="bg-primary" >Select Filesystem </label>
+
+        </div>
+
+            <!--Format the device-->
+        <div id="format">
+            <input type="submit" class="btn btn-primary" value="Format">
+        </div>
+        <h5>
+        <p class="text-danger">**Please wait for atleast a minute to complete formatting...**</h5> </p>
+    </form>
+
+
+</div>
+    <hr>
+    <div>
+        <footer id="foot">
+    <p><h1><b>Developed By</b></h1></p>
+
+        <p>-Nishant Kumar</p>
+        <p>-Chetan Pawar</p>
+    </footer>
+
+</div>
+</body>
+</html>
