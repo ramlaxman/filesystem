@@ -2,7 +2,10 @@
 
 ## Requirements:
 
+Currently this project only works for Linux distributions both DEB & RPM based.
+
 In terminal, install prerequisites by: `sudo bash require.sh`
+
 
 Steps to execute:
 
